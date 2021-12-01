@@ -15,11 +15,11 @@
         android:id="@+id/navigation_dashboard"
         android:name="com.example.furadminapp.ui.beers.BeerFragment"
         android:label="@string/title_beer"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_beers" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.furadminapp.ui.events.EventFragment"
         android:label="@string/title_event"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_events" />
 </navigation>

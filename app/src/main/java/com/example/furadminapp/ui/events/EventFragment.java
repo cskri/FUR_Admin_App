@@ -12,19 +12,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.furadminapp.databinding.FragmentNotificationsBinding;
+import com.example.furadminapp.databinding.FragmentEventsBinding;
 
 public class EventFragment extends Fragment {
 
     private EventViewModel eventViewModel;
-    private FragmentNotificationsBinding binding;
+    private FragmentEventsBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         eventViewModel =
                 new ViewModelProvider(this).get(EventViewModel.class);
 
-        binding = FragmentNotificationsBinding.inflate(inflater, container, false);
+        binding = FragmentEventsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textNotifications;

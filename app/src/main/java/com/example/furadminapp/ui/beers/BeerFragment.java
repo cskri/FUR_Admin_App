@@ -12,19 +12,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.furadminapp.databinding.FragmentDashboardBinding;
+import com.example.furadminapp.databinding.FragmentBeersBinding;
 
 public class BeerFragment extends Fragment {
 
     private BeerViewModel beerViewModel;
-    private FragmentDashboardBinding binding;
+    private FragmentBeersBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         beerViewModel =
                 new ViewModelProvider(this).get(BeerViewModel.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentBeersBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         final TextView textView = binding.textDashboard;
