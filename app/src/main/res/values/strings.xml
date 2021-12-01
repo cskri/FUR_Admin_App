@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">FUR Admin App</string>
+    <string name="title_home">Home</string>
+    <string name="title_beer">Beers</string>
+    <string name="title_event">Events</string>
+    <string name="fur_bryghus">FUR Bryghus</string>
+    <string name="scan">Scan</string>
+    <string name="search_for_a_beer">Search For A Beer</string>
+</resources>
