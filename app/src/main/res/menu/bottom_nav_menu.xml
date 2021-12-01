@@ -4,16 +4,19 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
+        android:iconTint="@color/black"
         android:title="@string/title_home" />
 
     <item
         android:id="@+id/navigation_beer"
         android:icon="@drawable/ic_baseline_sports_bar_24"
+        android:iconTint="@color/black"
         android:title="@string/title_beer" />
 
     <item
         android:id="@+id/navigation_event"
         android:icon="@drawable/ic_baseline_calendar_today_24"
+        android:iconTint="@color/black"
         android:title="@string/title_event" />
 
 </menu>
