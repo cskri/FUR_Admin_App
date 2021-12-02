@@ -34,6 +34,7 @@ public class CreateBeerActivity extends AppCompatActivity {
 
     Button scanButton;
     Button saveBeer;
+    Button backButton;
     private EditText beerName;
     private EditText beerId;
     private EditText beerType;
@@ -59,8 +60,14 @@ public class CreateBeerActivity extends AppCompatActivity {
         beerProof = (EditText) findViewById(R.id.beerProofInput);
         beerCarbon = (EditText) findViewById(R.id.beerCarbonInput);
         saveBeer = findViewById(R.id.beerSaveButton);
+        backButton = findViewById(R.id.beerBackButton);
         db = FirebaseFirestore.getInstance();
-
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         saveBeer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

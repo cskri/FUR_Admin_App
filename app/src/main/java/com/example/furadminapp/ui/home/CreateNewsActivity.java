@@ -34,21 +34,21 @@ public class CreateNewsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_news);
-        findViewById(R.id.beerBackButton).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.newsBackButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
         db = FirebaseFirestore.getInstance();
-        backButton = findViewById(R.id.beerBackButton);
+        backButton = findViewById(R.id.newsBackButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-        createNewsButton = findViewById(R.id.beerSaveButton);
+        createNewsButton = findViewById(R.id.newsSaveButton);
         createNewsButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
