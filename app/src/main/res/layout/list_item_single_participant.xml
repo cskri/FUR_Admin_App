@@ -44,7 +44,7 @@
         android:layout_marginTop="8dp"
         android:alpha="50"
         android:elevation="8dp"
-        android:text="Name"
+        android:text="Participant ID:"
         android:textAlignment="center"
         android:textColor="@color/blue_200"
         android:textSize="24sp"

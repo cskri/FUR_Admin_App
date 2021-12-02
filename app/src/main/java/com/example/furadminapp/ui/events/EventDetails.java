@@ -53,7 +53,71 @@ public class EventDetails extends AppCompatActivity {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(EventDetails.this);
+                builder.setTitle("Confirm Deletion");
+                builder.setMessage("Confirm that you want to delete the event");
+                builder.setPositiveButton("DELETE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        DocumentReference docRef = db.collection("events").document(id);
+                        docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                if (task.isSuccessful()) {
+                                    DocumentSnapshot document = task.getResult();
+                                    if (document.exists()) {
+                                        List<String> participants = document.toObject(ParticipantDocument.class).participants;
 
+                                        for(int i = 0; participants.size()<i;i++){
+                                            if(participants.get(i) != null){
+                                                String uId = participants.get(i);
+                                                DocumentReference docRef = db.collection("eventUser").document(uId);
+                                                docRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                                                        if (task.isSuccessful()) {
+                                                            DocumentSnapshot document = task.getResult();
+                                                            if (document.exists()) {
+                                                                List<String> events = document.toObject(EventDocument.class).eventId;
+                                                                events.remove(uId);
+                                                                if(events.size() == 0){
+                                                                    document.getReference().delete();
+                                                                }
+                                                                else{
+                                                                    document.getReference().update("eventId", events);
+                                                                }
+
+                                                            } else {
+                                                                Log.d(TAG, "get failed with ", task.getException());
+                                                            }
+                                                        }
+                                                        else {
+                                                            Log.d(TAG, "get failed with ", task.getException());
+                                                        }
+                                                    }
+                                                });
+                                            }
+                                        }
+                                        document.getReference().delete();
+                                        finish();
+                                    } else {
+                                        Log.d(TAG, "get failed with ", task.getException());
+                                    }
+                                }
+                                else {
+                                    Log.d(TAG, "get failed with ", task.getException());
+                                }
+                            }
+                        });
+                    }
+                });
+                builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.show();
             }
         });
         mTitle = findViewById(R.id.eventTitle);
