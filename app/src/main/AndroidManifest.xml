@@ -12,14 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FURAdminApp">
         <activity
+            android:name=".ui.events.CreateEventActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.beers.CreateBeerActivity"
             android:exported="false" />
         <activity
             android:name=".ui.home.CreateNewsActivity"
             android:exported="false" />
-        <activity android:name=".ui.beers.Capture"
+        <activity
+            android:name=".ui.beers.Capture"
             android:screenOrientation="portrait"
-            android:stateNotNeeded="true"/>
+            android:stateNotNeeded="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
