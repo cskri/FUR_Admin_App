@@ -156,7 +156,8 @@
                 android:inputType="time"
                 android:textColor="@color/black"
                 android:textColorHint="@color/grey"
-                android:textSize="14sp" />
+                android:textSize="14sp"
+                tools:ignore="TouchTargetSizeCheck" />
 
             <CalendarView
                 android:id="@+id/eventCalendarView"
